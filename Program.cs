@@ -1,5 +1,5 @@
 ﻿using Lab5_Misuiro.Kirill;
-using Clinic.Patient;
+using Clinic;
 
 namespace Lab5_Misyuro.Kirill
 {
@@ -19,7 +19,7 @@ namespace Lab5_Misyuro.Kirill
             Console.WriteLine("Money in ATM {0}",atm.MoneyInAtm());
             atm.AddMoney(5, 23, 0);
             Console.WriteLine("Money in ATM {0}", atm.MoneyInAtm());
-            string status = atm.RemoveMoney(6790) ? "Task completed successfully" : "Error";
+            string status = atm.RemoveMoney(6780) ? "Task completed successfully" : "Error";
             Console.WriteLine(status);
             Console.WriteLine("Money in ATM {0}", atm.MoneyInAtm());
 

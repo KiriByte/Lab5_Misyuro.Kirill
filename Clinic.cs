@@ -47,58 +47,55 @@ namespace Clinic
         }
     }
 
-    namespace Patient
+
+    public class Patient
     {
-        public class Patient
+        string name;
+        Plan plan;
+        Doctor doc;
+
+        public Patient(string name, int planValue)
         {
-            string name;
-            Plan plan;
-            Doctor doc = new Doctor();
-
-            public Patient(string name, int planValue)
-            {
-                this.name = name;
-                plan = new Plan(planValue);
-                plan.value = planValue;
-            }
-            public void AppointDoctor()
-            {
-                if (plan.value == 1)
-                {
-                    doc = new Surgeon();
-                }
-                else if (plan.value == 2)
-                {
-                    doc = new Dentist();
-                }
-                else
-                {
-                    doc = new Therapist();
-                }
-                doc.Heal();
-            }
-
-            public string GetPatientInfo()
-            {
-                StringBuilder str = new StringBuilder();
-                str.Append("Patient name: ").AppendLine(name);
-                str.Append("Patient heal plan: ").AppendLine(plan.value.ToString());
-                str.Append("Doctor: ").AppendLine(doc.name);
-                return str.ToString();
-            }
-
+            this.name = name;
+            plan = new Plan(planValue);
+            plan.value = planValue;
         }
-        class Plan
+        public void AppointDoctor()
         {
-            public int value;
-            public Plan(int value)
+            if (plan.value == 1)
             {
-                this.value = value;
+                doc = new Surgeon();
             }
+            else if (plan.value == 2)
+            {
+                doc = new Dentist();
+            }
+            else
+            {
+                doc = new Therapist();
+            }
+            doc.Heal();
+        }
+
+        public string GetPatientInfo()
+        {
+            StringBuilder str = new StringBuilder();
+            str.Append("Patient name: ").AppendLine(name);
+            str.Append("Patient heal plan: ").AppendLine(plan.value.ToString());
+            str.Append("Doctor: ").AppendLine(doc.name);
+            return str.ToString();
+        }
+
+    }
+    class Plan
+    {
+        public int value;
+        public Plan(int value)
+        {
+            this.value = value;
         }
     }
-
-
-
-
 }
+
+
+

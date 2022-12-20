@@ -49,18 +49,17 @@ namespace Lab5_Misuiro.Kirill
                 count100 -= cashoutCount100;
                 cashout %= 100;
             }
-            if (cashout / 50 > count50)
+            if (cashout / 50 > count50 && (cashout - count50 * 50) % 20 == 0)
             {
-
                 cashoutCount50 = count50;
                 count50 = 0;
                 cashout -= cashoutCount50 * 50;
             }
             else
             {
-                cashoutCount50 = cashout / 50;
+                cashoutCount50 = cashout / 50 - 1;
                 count50 -= cashoutCount50;
-                cashout %= 50;
+                cashout %= 50 + 50;
             }
             if (cashout / 20 > count20)
             {
@@ -75,7 +74,6 @@ namespace Lab5_Misuiro.Kirill
                 count20 -= cashoutCount20;
                 cashout %= 20;
             }
-
             Console.WriteLine("Number of 100 denomination bills = {0}", cashoutCount100);
             Console.WriteLine("Number of 50 denomination bills = {0}", cashoutCount50);
             Console.WriteLine("Number of 20 denomination bills = {0}", cashoutCount20);
